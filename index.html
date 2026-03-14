@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="appTitle">닮은 사람 찾기 - AI 얼굴 유사도 분석 서비스</title>
+  <meta name="description" content="AI 기술로 사진 속 인물과 닮은 사람을 찾아드립니다. 브라우저에서 직접 작동하며 사진이 서버에 업로드되지 않아 개인정보가 안전합니다." />
+  <meta name="keywords" content="닮은 사람 찾기, 얼굴 인식, AI, 닮은꼴, 유사도, 얼굴 비교" />
+  <meta property="og:title" content="닮은 사람 찾기 - AI 얼굴 유사도 분석" />
+  <meta property="og:description" content="AI로 사진 속 인물과 가장 닮은 사람을 찾아보세요." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google AdSense -->
+  <!-- 아래 ca-pub-XXXXXXXXXX 를 본인의 애드센스 Publisher ID로 교체하세요 -->
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script defer src="https://cdn.jsdelivr.net/npm/@vladmandic/face-api/dist/face-api.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+
+  <!-- Site Navigation -->
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="index.html" class="site-logo">
+        <span>👤</span>
+        <span data-ko="닮은 사람 찾기" data-ja="似た人探し">닮은 사람 찾기</span>
+      </a>
+      <ul class="site-nav-links">
+        <li><a href="index.html" class="active" data-ko="서비스 이용" data-ja="サービス利用">서비스 이용</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+      <div class="site-lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Loading Overlay -->
+  <div id="loadingOverlay" class="loading-overlay">
+    <div class="loading-box">
+      <div class="spinner"></div>
+      <p id="loadingText" data-i18n="loading">AI 모델 로딩 중...</p>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-icon">👤</span>
+        <h1 data-i18n="appTitle">닮은 사람 찾기</h1>
+      </div>
+      <div class="lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Tab Navigation -->
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="find" data-i18n="tabFind">유사 인물 찾기</button>
+      <button class="tab-btn" data-tab="database" data-i18n="tabDatabase">데이터베이스 관리</button>
+    </nav>
+
+    <!-- ===== TAB: FIND ===== -->
+    <section class="tab-content active" id="tab-find">
+
+      <!-- Upload Area -->
+      <div class="card upload-card">
+        <h2 data-i18n="uploadTitle">사진 업로드</h2>
+        <p class="subtitle" data-i18n="uploadSubtitle">얼굴이 잘 보이는 사진을 업로드하세요</p>
+
+        <div class="upload-zone" id="uploadZone">
+          <input type="file" id="fileInput" accept="image/*" hidden />
+          <div class="upload-icon">📷</div>
+          <p data-i18n="uploadDrop">클릭하거나 사진을 드래그하세요</p>
+          <span class="upload-hint" data-i18n="uploadHint">JPG · PNG · WEBP</span>
+        </div>
+
+        <!-- Preview -->
+        <div class="preview-area" id="previewArea" style="display:none;">
+          <div class="preview-wrap">
+            <img id="previewImg" alt="preview" />
+            <canvas id="faceCanvas"></canvas>
+          </div>
+          <button class="btn btn-secondary btn-sm" id="clearBtn" data-i18n="clearBtn">지우기</button>
+        </div>
+
+        <button class="btn btn-primary" id="searchBtn" disabled data-i18n="searchBtn">
+          🔍 닮은 사람 찾기
+        </button>
+      </div>
+
+      <!-- Status -->
+      <div class="status-bar" id="statusBar" style="display:none;">
+        <span id="statusText"></span>
+      </div>
+
+      <!-- Results -->
+      <div class="results-section" id="resultsSection" style="display:none;">
+        <h2 data-i18n="resultsTitle">검색 결과</h2>
+        <div class="results-grid" id="resultsGrid"></div>
+      </div>
+
+    </section>
+
+    <!-- ===== TAB: DATABASE ===== -->
+    <section class="tab-content" id="tab-database">
+
+      <!-- Add Person Form -->
+      <div class="card">
+        <h2 data-i18n="dbAddTitle">인물 추가</h2>
+        <p class="subtitle" data-i18n="dbAddSubtitle">비교할 인물 사진을 데이터베이스에 추가하세요</p>
+
+        <div class="add-form">
+          <div class="form-row">
+            <label data-i18n="labelName">이름</label>
+            <input type="text" id="personName" class="input-text" data-i18n-placeholder="namePlaceholder" placeholder="이름을 입력하세요" />
+          </div>
+
+          <div class="upload-zone upload-zone-sm" id="dbUploadZone">
+            <input type="file" id="dbFileInput" accept="image/*" hidden />
+            <div class="upload-icon">📁</div>
+            <p data-i18n="uploadDrop">클릭하거나 사진을 드래그하세요</p>
+          </div>
+
+          <div class="db-preview-wrap" id="dbPreviewArea" style="display:none;">
+            <img id="dbPreviewImg" alt="db preview" />
+            <button class="btn btn-secondary btn-sm" id="dbClearBtn" data-i18n="clearBtn">지우기</button>
+          </div>
+
+          <button class="btn btn-primary" id="addPersonBtn" data-i18n="addBtn">
+            ➕ 데이터베이스에 추가
+          </button>
+        </div>
+      </div>
+
+      <!-- Database List -->
+      <div class="card">
+        <div class="db-header">
+          <h2 data-i18n="dbListTitle">등록된 인물</h2>
+          <span class="db-count" id="dbCount">0</span>
+        </div>
+
+        <div class="db-empty" id="dbEmpty">
+          <span>🗂️</span>
+          <p data-i18n="dbEmpty">등록된 인물이 없습니다</p>
+          <p class="subtitle" data-i18n="dbEmptyHint">위에서 인물을 추가하면 닮은 사람 검색을 사용할 수 있습니다</p>
+        </div>
+
+        <div class="db-grid" id="dbGrid"></div>
+
+        <button class="btn btn-danger btn-sm" id="clearDbBtn" style="display:none;" data-i18n="clearDbBtn">
+          🗑️ 전체 삭제
+        </button>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-copy">© 2025 닮은 사람 찾기. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="privacy.html" data-ko="개인정보처리방침" data-ja="プライバシーポリシー">개인정보처리방침</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

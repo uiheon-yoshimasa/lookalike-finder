@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>서비스 소개 - 닮은 사람 찾기</title>
+  <meta name="description" content="닮은 사람 찾기 서비스는 브라우저에서 AI가 직접 실행되어 사진을 서버로 전송하지 않는 안전한 얼굴 유사도 분석 서비스입니다." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script src="lang.js"></script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="index.html" class="site-logo">
+        <span>👤</span>
+        <span data-ko="닮은 사람 찾기" data-ja="似た人探し">닮은 사람 찾기</span>
+      </a>
+      <ul class="site-nav-links">
+        <li><a href="index.html" data-ko="서비스 이용" data-ja="サービス利用">서비스 이용</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="about.html" class="active" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+      <div class="site-lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="page-hero">
+      <h1 data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</h1>
+      <p data-ko="AI 얼굴 인식 기술로 닮은 사람을 찾아드립니다" data-ja="AI顔認識技術で似た人を見つけます">AI 얼굴 인식 기술로 닮은 사람을 찾아드립니다</p>
+    </div>
+
+    <!-- KO Content -->
+    <div class="ko-block">
+      <div class="content-section">
+        <h2>서비스란?</h2>
+        <p>
+          <strong>닮은 사람 찾기</strong>는 인공지능(AI) 얼굴 인식 기술을 활용하여 업로드한 사진 속 인물과 가장 닮은 사람을 찾아주는 무료 서비스입니다.
+        </p>
+        <p>
+          이 서비스의 가장 큰 특징은 모든 처리가 <strong>사용자의 브라우저 내에서 직접 실행</strong>된다는 점입니다. 업로드된 사진은 어떠한 외부 서버에도 전송되지 않으므로 개인정보가 완벽하게 보호됩니다.
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>완전한 프라이버시 보호</h3>
+            <p>사진이 서버로 전송되지 않습니다. 모든 AI 처리는 브라우저에서 로컬로 실행됩니다.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🤖</span>
+            <h3>최신 AI 기술</h3>
+            <p>TensorFlow.js 기반의 딥러닝 얼굴 인식 모델로 128차원 특징 벡터를 추출합니다.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🌐</span>
+            <h3>한국어 · 日本語 지원</h3>
+            <p>한국어와 일본어를 지원하여 두 언어 사용자 모두 편리하게 이용할 수 있습니다.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💾</span>
+            <h3>데이터 로컬 저장</h3>
+            <p>등록한 인물 정보는 브라우저의 로컬 스토리지에 저장되어 다음 방문 시에도 유지됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>기술 소개</h2>
+        <p>
+          이 서비스는 오픈소스 얼굴 인식 라이브러리인 <strong>face-api.js</strong>를 기반으로 구축되었습니다.
+          Face-api.js는 Microsoft Research의 ResNet-34 구조를 기반으로 한 딥러닝 모델을 사용하며,
+          얼굴당 128개의 숫자(벡터)로 얼굴의 고유한 특징을 표현합니다.
+        </p>
+        <h3>유사도 계산 방식</h3>
+        <p>
+          두 얼굴의 유사도는 각 얼굴의 128차원 특징 벡터 간의 <strong>유클리드 거리(Euclidean Distance)</strong>를 계산하여 결정됩니다.
+          거리가 0에 가까울수록 두 얼굴이 동일하거나 매우 닮았음을 의미하며, 이를 백분율(%)로 변환하여 표시합니다.
+        </p>
+        <ul>
+          <li>유사도 <strong>70% 이상</strong>: 매우 유사한 얼굴 특징</li>
+          <li>유사도 <strong>45~69%</strong>: 어느 정도 닮은 특징</li>
+          <li>유사도 <strong>44% 이하</strong>: 특징 차이가 큰 경우</li>
+        </ul>
+        <p>
+          단, 유사도 수치는 조명, 표정, 촬영 각도에 따라 달라질 수 있으며 참고용으로만 활용해 주세요.
+        </p>
+      </div>
+
+      <div class="content-section">
+        <h2>서비스 이용 시 주의사항</h2>
+        <ul>
+          <li>본 서비스는 <strong>오락 및 재미 목적</strong>으로 제공됩니다.</li>
+          <li>타인의 동의 없이 사진을 무단으로 사용하지 마세요.</li>
+          <li>결과는 AI의 수치적 유사도이며 실제 외모 판단과 다를 수 있습니다.</li>
+          <li>미성년자를 포함한 사진 사용 시 보호자의 동의가 필요합니다.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- JA Content -->
+    <div class="ja-block" style="display:none;">
+      <div class="content-section">
+        <h2>サービスとは？</h2>
+        <p>
+          <strong>似た人探し</strong>は、人工知能（AI）の顔認識技術を活用して、アップロードした写真の人物に最も似た人を探す無料サービスです。
+        </p>
+        <p>
+          このサービスの最大の特徴は、すべての処理が<strong>ユーザーのブラウザ内で直接実行</strong>されることです。アップロードされた写真はいかなる外部サーバーにも送信されないため、個人情報が完全に保護されます。
+        </p>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🔒</span>
+            <h3>完全なプライバシー保護</h3>
+            <p>写真はサーバーに送信されません。すべてのAI処理はブラウザでローカルに実行されます。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🤖</span>
+            <h3>最新AI技術</h3>
+            <p>TensorFlow.jsベースのディープラーニング顔認識モデルで128次元特徴ベクトルを抽出します。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🌐</span>
+            <h3>韓国語・日本語対応</h3>
+            <p>韓国語と日本語に対応しており、両言語のユーザーが便利に利用できます。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💾</span>
+            <h3>ローカルデータ保存</h3>
+            <p>登録した人物情報はブラウザのローカルストレージに保存され、次回訪問時にも維持されます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>技術紹介</h2>
+        <p>
+          このサービスはオープンソースの顔認識ライブラリ<strong>face-api.js</strong>をベースに構築されています。
+          ResNet-34構造に基づくディープラーニングモデルを使用し、顔ごとに128個の数値（ベクトル）で顔固有の特徴を表現します。
+        </p>
+        <h3>類似度の計算方法</h3>
+        <p>
+          2つの顔の類似度は、各顔の128次元特徴ベクトル間の<strong>ユークリッド距離</strong>を計算して決定されます。
+          距離が0に近いほど2つの顔が同一または非常に似ていることを意味し、これをパーセンテージ（%）に変換して表示します。
+        </p>
+        <ul>
+          <li>類似度<strong>70%以上</strong>：非常によく似た顔の特徴</li>
+          <li>類似度<strong>45〜69%</strong>：ある程度似た特徴</li>
+          <li>類似度<strong>44%以下</strong>：特徴の差が大きい場合</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>ご利用上の注意</h2>
+        <ul>
+          <li>本サービスは<strong>娯楽・エンターテインメント目的</strong>で提供されます。</li>
+          <li>他人の同意なく無断で写真を使用しないでください。</li>
+          <li>結果はAIの数値的類似度であり、実際の外見判断とは異なる場合があります。</li>
+          <li>未成年者を含む写真の使用には保護者の同意が必要です。</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-copy">© 2025 닮은 사람 찾기. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="privacy.html" data-ko="개인정보처리방침" data-ja="プライバシーポリシー">개인정보처리방침</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>문의하기 - 닮은 사람 찾기</title>
+  <meta name="description" content="닮은 사람 찾기 서비스에 대한 문의, 버그 신고, 기능 제안을 보내주세요." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script src="lang.js"></script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="index.html" class="site-logo">
+        <span>👤</span>
+        <span data-ko="닮은 사람 찾기" data-ja="似た人探し">닮은 사람 찾기</span>
+      </a>
+      <ul class="site-nav-links">
+        <li><a href="index.html" data-ko="서비스 이용" data-ja="サービス利用">서비스 이용</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="contact.html" class="active" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+      <div class="site-lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="page-hero">
+      <h1 data-ko="문의하기" data-ja="お問い合わせ">문의하기</h1>
+      <p data-ko="궁금한 점이나 의견을 알려주세요" data-ja="ご質問やご意見をお聞かせください">궁금한 점이나 의견을 알려주세요</p>
+    </div>
+
+    <!-- KO Content -->
+    <div class="ko-block">
+
+      <div class="content-section">
+        <h2>문의 방법</h2>
+        <p>
+          닮은 사람 찾기 서비스에 대한 문의, 버그 신고, 기능 제안 등은
+          아래 양식을 통해 보내주세요. 최대한 빠르게 답변 드리겠습니다.
+        </p>
+
+        <div class="feature-grid" style="margin-bottom:1.5rem;">
+          <div class="feature-card">
+            <span class="feature-icon">🐛</span>
+            <h3>버그 신고</h3>
+            <p>서비스 이용 중 오류나 문제가 발생했을 때 알려주세요.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💡</span>
+            <h3>기능 제안</h3>
+            <p>새로운 기능이나 개선사항을 제안해 주세요.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">❓</span>
+            <h3>일반 문의</h3>
+            <p>서비스 이용에 관한 궁금한 점을 질문해 주세요.</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div>
+            <label for="contactName">이름 *</label>
+            <input type="text" id="contactName" placeholder="이름을 입력하세요" required />
+          </div>
+          <div>
+            <label for="contactEmail">이메일 *</label>
+            <input type="email" id="contactEmail" placeholder="답변 받으실 이메일 주소" required />
+          </div>
+          <div>
+            <label for="contactCategory">문의 유형</label>
+            <select id="contactCategory" style="width:100%;padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;outline:none;">
+              <option value="bug">버그 신고</option>
+              <option value="feature">기능 제안</option>
+              <option value="question">일반 문의</option>
+              <option value="other">기타</option>
+            </select>
+          </div>
+          <div>
+            <label for="contactMessage">내용 *</label>
+            <textarea id="contactMessage" placeholder="문의 내용을 자세히 작성해 주세요." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" id="submitBtn">
+            📨 문의 보내기
+          </button>
+        </form>
+
+        <div id="contactSuccess" style="display:none; margin-top:1rem; padding:1rem; background:var(--primary-light); border-radius:var(--radius); color:var(--primary); text-align:center; font-weight:600;">
+          ✅ 문의가 접수되었습니다. 빠른 시일 내에 답변 드리겠습니다.
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>자주 묻는 질문은 가이드를 확인하세요</h2>
+        <p>
+          문의 전에 <a href="guide.html">이용 가이드</a>의 FAQ 섹션을 먼저 확인해 주세요.
+          많은 질문에 대한 답변이 이미 준비되어 있습니다.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- JA Content -->
+    <div class="ja-block" style="display:none;">
+
+      <div class="content-section">
+        <h2>お問い合わせ方法</h2>
+        <p>
+          似た人探しサービスへのお問い合わせ、バグ報告、機能提案などは
+          以下のフォームよりお送りください。できる限り早くご回答いたします。
+        </p>
+
+        <div class="feature-grid" style="margin-bottom:1.5rem;">
+          <div class="feature-card">
+            <span class="feature-icon">🐛</span>
+            <h3>バグ報告</h3>
+            <p>サービス利用中にエラーや問題が発生した際はお知らせください。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💡</span>
+            <h3>機能提案</h3>
+            <p>新機能や改善点を提案してください。</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">❓</span>
+            <h3>一般的なお問い合わせ</h3>
+            <p>サービス利用に関するご質問をどうぞ。</p>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactFormJa">
+          <div>
+            <label>お名前 *</label>
+            <input type="text" placeholder="お名前を入力してください" required />
+          </div>
+          <div>
+            <label>メールアドレス *</label>
+            <input type="email" placeholder="返信先のメールアドレス" required />
+          </div>
+          <div>
+            <label>お問い合わせ種別</label>
+            <select style="width:100%;padding:0.65rem 1rem;border:1.5px solid var(--border);border-radius:8px;font-size:0.95rem;font-family:inherit;outline:none;">
+              <option>バグ報告</option>
+              <option>機能提案</option>
+              <option>一般的なお問い合わせ</option>
+              <option>その他</option>
+            </select>
+          </div>
+          <div>
+            <label>お問い合わせ内容 *</label>
+            <textarea placeholder="お問い合わせ内容を詳しくお書きください。" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">
+            📨 送信する
+          </button>
+        </form>
+      </div>
+
+      <div class="content-section">
+        <h2>よくある質問はガイドをご確認ください</h2>
+        <p>
+          お問い合わせ前に<a href="guide.html">利用ガイド</a>のFAQセクションをご確認ください。
+          多くの質問への回答がすでに用意されています。
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-copy">© 2025 닮은 사람 찾기. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="privacy.html" data-ko="개인정보처리방침" data-ja="プライバシーポリシー">개인정보처리방침</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      // 실제 배포 시 여기에 이메일 전송 로직(FormSubmit, EmailJS 등) 추가
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    });
+  </script>
+
+</body>
+</html>

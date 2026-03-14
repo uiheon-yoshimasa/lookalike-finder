@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>이용 가이드 - 닮은 사람 찾기</title>
+  <meta name="description" content="닮은 사람 찾기 서비스 사용법을 단계별로 안내합니다. 사진 등록부터 유사도 검색까지 쉽게 따라할 수 있습니다." />
+  <link rel="stylesheet" href="style.css" />
+  <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossorigin="anonymous"></script> -->
+  <script src="lang.js"></script>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <div class="site-nav-inner">
+      <a href="index.html" class="site-logo">
+        <span>👤</span>
+        <span data-ko="닮은 사람 찾기" data-ja="似た人探し">닮은 사람 찾기</span>
+      </a>
+      <ul class="site-nav-links">
+        <li><a href="index.html" data-ko="서비스 이용" data-ja="サービス利用">서비스 이용</a></li>
+        <li><a href="guide.html" class="active" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+      <div class="site-lang-toggle">
+        <button class="lang-btn active" data-lang="ko">한국어</button>
+        <span class="lang-sep">|</span>
+        <button class="lang-btn" data-lang="ja">日本語</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="page-hero">
+      <h1 data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</h1>
+      <p data-ko="단계별로 쉽게 따라하세요" data-ja="ステップごとに簡単に使えます">단계별로 쉽게 따라하세요</p>
+    </div>
+
+    <!-- KO Content -->
+    <div class="ko-block">
+
+      <div class="content-section">
+        <h2>사용 방법 (3단계)</h2>
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>인물 데이터베이스 구축</h3>
+            <p>상단 탭에서 "데이터베이스 관리"를 선택하고, 비교하고 싶은 인물의 사진과 이름을 등록하세요.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>사진 업로드</h3>
+            <p>"유사 인물 찾기" 탭에서 비교하고 싶은 사진을 업로드하거나 드래그 앤 드롭합니다.</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>결과 확인</h3>
+            <p>"닮은 사람 찾기" 버튼을 누르면 데이터베이스에서 유사도 순으로 결과가 표시됩니다.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>좋은 결과를 얻으려면</h2>
+        <h3>사진 선택 팁</h3>
+        <ul>
+          <li><strong>정면을 향한 사진</strong>을 사용하면 인식률이 높아집니다.</li>
+          <li>얼굴이 크게 나온 사진일수록 더 정확합니다.</li>
+          <li>조명이 고른 환경에서 촬영된 사진을 권장합니다.</li>
+          <li>안경, 마스크 등 얼굴을 가리는 요소는 인식 정확도를 낮출 수 있습니다.</li>
+          <li>JPG, PNG, WEBP 형식의 이미지를 지원합니다.</li>
+        </ul>
+
+        <h3>데이터베이스 구축 팁</h3>
+        <ul>
+          <li>비교하고 싶은 인물을 <strong>여러 명</strong> 등록할수록 풍부한 결과를 얻을 수 있습니다.</li>
+          <li>각 인물마다 <strong>정면 사진</strong>을 사용하면 정확도가 향상됩니다.</li>
+          <li>데이터베이스는 브라우저를 닫아도 유지됩니다 (로컬 스토리지 사용).</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>자주 묻는 질문 (FAQ)</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 사진이 서버에 업로드되나요?</p>
+          <p class="faq-a">아니요. 모든 처리는 사용자의 브라우저에서 직접 이루어집니다. 사진은 외부 서버로 전송되지 않아 개인정보가 완전히 보호됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 처음 사용 시 로딩이 오래 걸립니다.</p>
+          <p class="faq-a">AI 모델 파일(약 6MB)을 처음 한 번만 다운로드합니다. 이후 방문 시에는 브라우저 캐시를 활용하여 빠르게 시작됩니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 얼굴을 감지하지 못했다는 메시지가 뜹니다.</p>
+          <p class="faq-a">얼굴이 너무 작거나, 측면이거나, 흐릿한 경우 감지에 실패할 수 있습니다. 얼굴이 크고 정면을 향한 사진으로 다시 시도해 주세요.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 등록한 데이터가 사라졌어요.</p>
+          <p class="faq-a">브라우저의 쿠키/사이트 데이터를 삭제하면 로컬 스토리지에 저장된 데이터도 함께 삭제됩니다. 데이터를 삭제하지 않았다면 같은 브라우저를 사용하고 있는지 확인해 주세요.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 유사도 퍼센트는 어떻게 계산되나요?</p>
+          <p class="faq-a">얼굴에서 추출한 128개 특징 값(벡터) 간의 유클리드 거리를 계산하여 0~100% 범위로 변환합니다. 100%에 가까울수록 더 닮은 얼굴입니다.</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 오프라인에서도 사용 가능한가요?</p>
+          <p class="faq-a">AI 모델을 한 번 다운로드하면 브라우저 캐시에 저장되므로, 이후에는 인터넷 연결 없이도 사용 가능합니다 (초기 모델 로드 시에는 인터넷 필요).</p>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>활용 사례</h2>
+        <ul>
+          <li><strong>연예인 닮은꼴 찾기:</strong> 좋아하는 연예인 사진을 데이터베이스에 등록하고 자신과 닮은 연예인을 찾아보세요.</li>
+          <li><strong>가족 닮은꼴 비교:</strong> 가족 구성원의 사진을 등록하여 서로 닮은 정도를 비교할 수 있습니다.</li>
+          <li><strong>친구들과 게임:</strong> 여러 사람의 사진을 등록하고 누가 누구와 가장 닮았는지 게임처럼 즐길 수 있습니다.</li>
+          <li><strong>역사 인물 비교:</strong> 역사적 인물의 사진을 등록하고 현재 인물과의 유사도를 비교할 수 있습니다.</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- JA Content -->
+    <div class="ja-block" style="display:none;">
+
+      <div class="content-section">
+        <h2>使い方（3ステップ）</h2>
+        <div class="step-grid">
+          <div class="step-card">
+            <div class="step-num">1</div>
+            <h3>人物データベースを構築</h3>
+            <p>上部タブで「データベース管理」を選択し、比較したい人物の写真と名前を登録してください。</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">2</div>
+            <h3>写真をアップロード</h3>
+            <p>「似た人を探す」タブで比較したい写真をアップロードまたはドラッグ＆ドロップします。</p>
+          </div>
+          <div class="step-card">
+            <div class="step-num">3</div>
+            <h3>結果を確認</h3>
+            <p>「似た人を探す」ボタンを押すと、データベースから類似度順に結果が表示されます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h2>より良い結果を得るために</h2>
+        <h3>写真選択のヒント</h3>
+        <ul>
+          <li><strong>正面を向いた写真</strong>を使うと認識率が上がります。</li>
+          <li>顔が大きく写っている写真ほど正確です。</li>
+          <li>照明が均一な環境で撮影された写真を推奨します。</li>
+          <li>メガネ・マスクなど顔を隠す要素は認識精度を下げる可能性があります。</li>
+        </ul>
+
+        <h3>データベース構築のヒント</h3>
+        <ul>
+          <li>比較したい人物を<strong>複数名</strong>登録するほど豊富な結果が得られます。</li>
+          <li>各人物に<strong>正面写真</strong>を使用すると精度が向上します。</li>
+          <li>データベースはブラウザを閉じても維持されます（ローカルストレージ使用）。</li>
+        </ul>
+      </div>
+
+      <div class="content-section">
+        <h2>よくある質問（FAQ）</h2>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 写真はサーバーにアップロードされますか？</p>
+          <p class="faq-a">いいえ。すべての処理はユーザーのブラウザで直接行われます。写真は外部サーバーに送信されないため、個人情報が完全に保護されます。</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 初回使用時にロード時間がかかります。</p>
+          <p class="faq-a">AIモデルファイル（約6MB）を初回のみダウンロードします。以降の訪問ではブラウザキャッシュを活用して素早く起動します。</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 顔を検出できないというメッセージが表示されます。</p>
+          <p class="faq-a">顔が小さすぎる、横向き、ぼやけている場合に検出に失敗することがあります。顔が大きく正面を向いた写真で再試行してください。</p>
+        </div>
+
+        <div class="faq-item">
+          <p class="faq-q">Q. 類似度のパーセンテージはどのように計算されますか？</p>
+          <p class="faq-a">顔から抽出した128個の特徴値（ベクトル）間のユークリッド距離を計算し、0〜100%の範囲に変換します。100%に近いほど似ている顔です。</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <footer class="site-footer">
+    <div class="site-footer-inner">
+      <p class="footer-copy">© 2025 닮은 사람 찾기. All rights reserved.</p>
+      <ul class="footer-links">
+        <li><a href="about.html" data-ko="서비스 소개" data-ja="サービス紹介">서비스 소개</a></li>
+        <li><a href="guide.html" data-ko="이용 가이드" data-ja="利用ガイド">이용 가이드</a></li>
+        <li><a href="privacy.html" data-ko="개인정보처리방침" data-ja="プライバシーポリシー">개인정보처리방침</a></li>
+        <li><a href="contact.html" data-ko="문의하기" data-ja="お問い合わせ">문의하기</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
